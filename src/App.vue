@@ -32,9 +32,21 @@ const addWeight = () => {
       <small>Current Weight (Kg)</small>
 
       <form @submit.prevent="addWeight">
-        <input type="number" step="0.1" v-model="weightInput">
-        <input type="submit" value="Add Weight">
+
+        <input type="number" step="0.1" v-model="weightInput"/>
+
+        <input type="submit" value="Add Weight"/>
+
       </form>
+    </div>
+
+    <div v-if="weights && weights.length > 0">
+
+      <h2>Last 7 Days</h2>
+
+      <div class="canvas-box">
+        <canvas ref="weightChartEl"></canvas>
+      </div>
     </div>
   </main>
 </template>
